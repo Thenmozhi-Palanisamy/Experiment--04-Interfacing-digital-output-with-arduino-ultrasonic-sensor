@@ -1,3 +1,4 @@
+
 # EXPERIMENT-NO--05-Distance measurement using Ultrasonic sensor
 
 ## AIM: 
@@ -56,28 +57,31 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### PROGRAM 
 
+#define echoPin 9 #define trigPin 10
 
+long duration; int distance;
 
-
-
-
-### Distance vs measurement table 
-
+void setup()
+{ 
+	pinMode(trigPin, OUTPUT);
+	 pinMode(echoPin, INPUT); 
+	 Serial.begin(9600);
+	  } 
+	  void loop()
+	  { 
+		digitalWrite(trigPin,LOW); 
+		delayMicroseconds(10);
+		 digitalWrite(trigPin,LOW);
+		  duration = pulseIn(echoPin,HIGH);
+		   distance = duration * 0.032 / 2; 
+		   Serial.print("Distance: "); 
+		   Serial.print(distance);
+		    Serial.println(" cm");
 			
- 
-			
-			
-			
-
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
-
-			
-			
-			
-			
-			
-			Average error = sum/ number of readings 
- 
+		 }
+## output:
+ ![output](.//p1.png)
+ ![output](.//p2.png)
 
 
 
@@ -85,8 +89,8 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 
-
-### RESULTS
+### RESULTS:
+THUS THE DISTANCE VALUE IS MEASURED IN "CM" USING ULRASONIC SENSOR BY ARDIUNO
 
 
 
